@@ -9,7 +9,7 @@
     <Grid>
         <MediaElement 
             Name="Media"
-            LoadedBehavior="Manual">
+            LoadedBehavior="Manual" Margin="0,24,0.4,-0.2" MouseUp="Media_MouseUp">
         </MediaElement>
         <StackPanel 
             Background="lightGray"

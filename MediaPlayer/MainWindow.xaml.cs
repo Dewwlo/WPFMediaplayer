@@ -56,6 +56,27 @@ namespace MediaPlayer
 
         private void PlayMedia_Click(object sender, RoutedEventArgs e)
         {
+            Play();
+        }
+
+        private void StopMedia_Click(object sender, RoutedEventArgs e)
+        {
+            Media.Stop();
+            PlayMedia.ToolTip = "Play";
+            PlayPause.Source = new BitmapImage(new Uri(@"images/play-icon.png", UriKind.RelativeOrAbsolute));
+            IsPlaying(false);
+            PlayMedia.IsEnabled = true;
+            Media.Close();
+        }
+
+        private void Media_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            if(Media.Source != null)
+                Play();
+        }
+
+        private void Play()
+        {
             IsPlaying(true);
             if (PlayMedia.ToolTip.ToString() == "Play")
             {
@@ -69,16 +90,6 @@ namespace MediaPlayer
                 PlayMedia.ToolTip = "Play";
                 PlayPause.Source = new BitmapImage(new Uri(@"images/play-icon.png", UriKind.RelativeOrAbsolute));
             }
-        }
-
-        private void StopMedia_Click(object sender, RoutedEventArgs e)
-        {
-            Media.Stop();
-            PlayMedia.ToolTip = "Play";
-            PlayPause.Source = new BitmapImage(new Uri(@"images/play-icon.png", UriKind.RelativeOrAbsolute));
-            IsPlaying(false);
-            PlayMedia.IsEnabled = true;
-            Media.Close();
         }
     }
 }
