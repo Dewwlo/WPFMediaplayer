@@ -9,10 +9,10 @@
     <Grid>
         <MediaElement 
             Name="Media"
-            LoadedBehavior="Manual" Margin="0,20,0.4,-0.2">
+            LoadedBehavior="Manual">
         </MediaElement>
         <StackPanel 
-            Background="LightGray"
+            Background="lightGray"
             Orientation="Horizontal"
             VerticalAlignment="Top">
             <Button 
@@ -28,13 +28,6 @@
             Name="PlayMedia" Click="PlayMedia_Click"
             ToolTip="Play">
                 Play
-            </Button>
-            <Button 
-            Height="20" 
-            Width="40" 
-            Name="PauseMedia" Click="PauseMedia_Click"
-            ToolTip="Pause">
-                Pause
             </Button>
             <Button 
             Height="20" 

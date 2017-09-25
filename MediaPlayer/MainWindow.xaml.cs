@@ -23,26 +23,57 @@ namespace MediaPlayer
         public MainWindow()
         {
             InitializeComponent();
+            IsPlaying(false);
+        }
+
+        private void IsPlaying(bool flag)
+        {
+            PlayMedia.IsEnabled = flag;
+            StopMedia.IsEnabled = flag;
         }
 
         private void OpenFile_Click(object sender, RoutedEventArgs e)
         {
+            Microsoft.Win32.OpenFileDialog dialog = new Microsoft.Win32.OpenFileDialog();
+            dialog.FileName = "Videos";
+            dialog.DefaultExt = ".WMV";
+            dialog.Filter = "All Videos Files |*.dat; *.wmv; *.3g2; *.3gp; *.3gp2; *.3gpp; *.amv; *.asf;  *.avi; *.bin; *.cue; *.divx; *.dv; *.flv; *.gxf; *.iso; *.m1v; *.m2v; *.m2t; *.m2ts; *.m4v; " +
+                  " *.mkv; *.mov; *.mp2; *.mp2v; *.mp4; *.mp4v; *.mpa; *.mpe; *.mpeg; *.mpeg1; *.mpeg2; *.mpeg4; *.mpg; *.mpv2; *.mts; *.nsv; *.nuv; *.ogg; *.ogm; *.ogv; *.ogx; *.ps; *.rec; *.rm; *.rmvb; *.tod; *.ts; *.tts; *.vob; *.vro; *.webm";
 
+            Nullable<bool> result = dialog.ShowDialog();
+
+            if (result == true)
+            {
+                Media.Source = new Uri(dialog.FileName);
+                Media.ScrubbingEnabled = true;
+                Media.Pause();
+                Media.Position = TimeSpan.FromTicks(1);
+                PlayMedia.IsEnabled = true;
+            }
         }
 
         private void PlayMedia_Click(object sender, RoutedEventArgs e)
         {
-            Media.Play();
-        }
-
-        private void PauseMedia_Click(object sender, RoutedEventArgs e)
-        {
-            Media.Pause();
+            IsPlaying(true);
+            if (PlayMedia.ToolTip.ToString() == "Play")
+            {
+                Media.Play();
+                PlayMedia.ToolTip = "Pause";
+            }
+            else
+            {
+                Media.Pause();
+                PlayMedia.ToolTip = "Play";
+            }
         }
 
         private void StopMedia_Click(object sender, RoutedEventArgs e)
         {
             Media.Stop();
+            PlayMedia.ToolTip = "Play";
+            IsPlaying(false);
+            PlayMedia.IsEnabled = true;
+            Media.Close();
         }
     }
 }
