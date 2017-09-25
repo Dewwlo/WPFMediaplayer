@@ -34,11 +34,13 @@ namespace MediaPlayer
 
         private void OpenFile_Click(object sender, RoutedEventArgs e)
         {
-            Microsoft.Win32.OpenFileDialog dialog = new Microsoft.Win32.OpenFileDialog();
-            dialog.FileName = "Videos";
-            dialog.DefaultExt = ".WMV";
-            dialog.Filter = "All Videos Files |*.dat; *.wmv; *.3g2; *.3gp; *.3gp2; *.3gpp; *.amv; *.asf;  *.avi; *.bin; *.cue; *.divx; *.dv; *.flv; *.gxf; *.iso; *.m1v; *.m2v; *.m2t; *.m2ts; *.m4v; " +
-                  " *.mkv; *.mov; *.mp2; *.mp2v; *.mp4; *.mp4v; *.mpa; *.mpe; *.mpeg; *.mpeg1; *.mpeg2; *.mpeg4; *.mpg; *.mpv2; *.mts; *.nsv; *.nuv; *.ogg; *.ogm; *.ogv; *.ogx; *.ps; *.rec; *.rm; *.rmvb; *.tod; *.ts; *.tts; *.vob; *.vro; *.webm";
+            var dialog = new Microsoft.Win32.OpenFileDialog
+            {
+                FileName = "Videos",
+                DefaultExt = ".WMV",
+                Filter = "All Videos Files |*.dat; *.wmv; *.3g2; *.3gp; *.3gp2; *.3gpp; *.amv; *.asf;  *.avi; *.bin; *.cue; *.divx; *.dv; *.flv; *.gxf; *.iso; *.m1v; *.m2v; *.m2t; *.m2ts; *.m4v; " +
+                  " *.mkv; *.mov; *.mp2; *.mp2v; *.mp4; *.mp4v; *.mpa; *.mpe; *.mpeg; *.mpeg1; *.mpeg2; *.mpeg4; *.mpg; *.mpv2; *.mts; *.nsv; *.nuv; *.ogg; *.ogm; *.ogv; *.ogx; *.ps; *.rec; *.rm; *.rmvb; *.tod; *.ts; *.tts; *.vob; *.vro; *.webm"
+            };
 
             Nullable<bool> result = dialog.ShowDialog();
 
@@ -59,11 +61,13 @@ namespace MediaPlayer
             {
                 Media.Play();
                 PlayMedia.ToolTip = "Pause";
+                PlayPause.Source = new BitmapImage(new Uri(@"images/pause-icon.png", UriKind.RelativeOrAbsolute));
             }
             else
             {
                 Media.Pause();
                 PlayMedia.ToolTip = "Play";
+                PlayPause.Source = new BitmapImage(new Uri(@"images/play-icon.png", UriKind.RelativeOrAbsolute));
             }
         }
 
@@ -71,6 +75,7 @@ namespace MediaPlayer
         {
             Media.Stop();
             PlayMedia.ToolTip = "Play";
+            PlayPause.Source = new BitmapImage(new Uri(@"images/play-icon.png", UriKind.RelativeOrAbsolute));
             IsPlaying(false);
             PlayMedia.IsEnabled = true;
             Media.Close();

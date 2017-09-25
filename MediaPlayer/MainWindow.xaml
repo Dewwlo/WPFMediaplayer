@@ -16,25 +16,25 @@
             Orientation="Horizontal"
             VerticalAlignment="Top">
             <Button 
-            Height="20" 
-            Width="40" 
+            Height="24"
+            Width="24"
             Name="OpenFile" Click="OpenFile_Click"
             ToolTip="Open">
-                Open
+                <Image Source="images/Folder-Open-icon.png"></Image>
             </Button>
-            <Button 
-            Height="20" 
-            Width="40" 
+            <Button
+            Height="24"
+            Width="24"
             Name="PlayMedia" Click="PlayMedia_Click"
             ToolTip="Play">
-                Play
+                <Image Name="PlayPause" Source="images/play-icon.png"></Image>
             </Button>
             <Button 
-            Height="20" 
-            Width="40" 
+            Height="24"
+            Width="24"
             Name="StopMedia" Click="StopMedia_Click"
             ToolTip="Stop">
-                Stop
+                <Image Source="images/stop-icon.png"></Image>
             </Button>
         </StackPanel>
         
