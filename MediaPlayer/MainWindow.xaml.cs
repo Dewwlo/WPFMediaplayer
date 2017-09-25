@@ -24,5 +24,25 @@ namespace MediaPlayer
         {
             InitializeComponent();
         }
+
+        private void OpenFile_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void PlayMedia_Click(object sender, RoutedEventArgs e)
+        {
+            Media.Play();
+        }
+
+        private void PauseMedia_Click(object sender, RoutedEventArgs e)
+        {
+            Media.Pause();
+        }
+
+        private void StopMedia_Click(object sender, RoutedEventArgs e)
+        {
+            Media.Stop();
+        }
     }
 }
