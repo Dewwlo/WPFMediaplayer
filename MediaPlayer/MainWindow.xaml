@@ -9,39 +9,41 @@
     <Grid>
         <MediaElement 
             Name="Media"
-            LoadedBehavior="Manual">
+            LoadedBehavior="Manual" Margin="0,20,0.4,-0.2">
         </MediaElement>
-        <Button 
-            Height="30" 
-            Width="50" 
-            Margin="51,47,417.4,243.8"
+        <StackPanel 
+            Background="LightGray"
+            Orientation="Horizontal"
+            VerticalAlignment="Top">
+            <Button 
+            Height="20" 
+            Width="40" 
             Name="OpenFile" Click="OpenFile_Click"
             ToolTip="Open">
-            Open
-        </Button>
-        <Button 
-            Height="30" 
-            Width="50" 
-            Margin="106,47,362.4,243.8"
+                Open
+            </Button>
+            <Button 
+            Height="20" 
+            Width="40" 
             Name="PlayMedia" Click="PlayMedia_Click"
             ToolTip="Play">
-            Play
-        </Button>
-        <Button 
-            Height="30" 
-            Width="50" 
-            Margin="161,47,307.4,243.8"
+                Play
+            </Button>
+            <Button 
+            Height="20" 
+            Width="40" 
             Name="PauseMedia" Click="PauseMedia_Click"
             ToolTip="Pause">
-            Pause
-        </Button>
-        <Button 
-            Height="30" 
-            Width="50" 
-            Margin="216,47,252.4,243.8"
+                Pause
+            </Button>
+            <Button 
+            Height="20" 
+            Width="40" 
             Name="StopMedia" Click="StopMedia_Click"
             ToolTip="Stop">
-            Stop
-        </Button>
+                Stop
+            </Button>
+        </StackPanel>
+        
     </Grid>
 </Window>
